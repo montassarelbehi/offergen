@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.msis</groupId>
+    <artifactId>offergen</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>offergen.web</artifactId>
+  <packaging>war</packaging>
+  <name>offergen.web</name>
+  
+  <properties>
+  	<java.version>1.8</java.version>
+  	<spring.version>4.2.2.RELEASE</spring.version>
+  	<hibernate.version>4.3.8.Final</hibernate.version>
+  	<blurredVersion>1.0.x</blurredVersion>
+  	
+  	<jackson.version>2.8.2</jackson.version>
+  </properties>
+  
+   <dependencies>
+   		<!-- offergen logic -->
+   		<dependency>
+   			<groupId>com.msis</groupId>
+   			<artifactId>offergen.logic</artifactId>
+   			<version>${project.version}</version>
+   		</dependency> 
+   		<!-- offergen web entities -->
+   		<dependency>
+   			<groupId>com.msis</groupId>
+   			<artifactId>offergen.web.entities</artifactId>
+   			<version>${project.version}</version>
+   		</dependency>
+   				
+   		<!-- Spring -->
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- SwaggerUI -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		
+		<!-- Jacksons' -->
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.fasterxml.jackson.datatype</groupId>
+    		<artifactId>jackson-datatype-jsr310</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+  </dependencies>
+
+  <build>
+  		<finalName>${project.artifactId}-${blurredVersion}</finalName>
+	    <plugins>
+	        <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-compiler-plugin</artifactId>
+	          <version>3.1</version>
+	          <configuration>
+	            <source>${java.version}</source>
+	            <target>${java.version}</target>
+	          </configuration>
+	        </plugin>
+	    </plugins>
+	</build>
+</project>
